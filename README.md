@@ -23,10 +23,10 @@ A dummy application for a bank; should provide various functions of a retail ban
 
 ### Current Features
 
-* A customer can open an account
-* A customer can deposit / withdraw funds from an account
+* A customer can open an account DONE
+* A customer can deposit / withdraw funds from an account DONE
 * A customer can request a statement that shows transactions and totals for each of their accounts
-* Different accounts have interest calculated in different ways
+* Different accounts have interest calculated in different ways DONE
   * **Checking accounts** have a flat rate of 0.1%
   * **Savings accounts** have a rate of 0.1% for the first $1,000 then 0.2%
   * **Maxi-Savings accounts** have a rate of 2% for the first $1,000 then 5% for the next $1,000 then 10%
