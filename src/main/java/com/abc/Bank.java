@@ -5,26 +5,24 @@ import java.util.List;
 
 public class Bank {
 	private List<Customer> customers;
-	private List<Manager> managers;
 
 	public Bank() {
 		customers = new ArrayList<Customer>();
-		managers = new ArrayList<Manager>();
+	}
+
+	public List<Customer> getCustomers() {
+		return customers;
 	}
 
 	public void addCustomer(Customer customer) {
 		customers.add(customer);
 	}
 
-	public void addManager(Manager manager) {
-		managers.add(manager);
-	}
-
-	public String customerSummary() {
+	public String getCustomerSummary() {
 		String summary = "Customer Summary";
 		for (Customer c : customers)
 			summary += "\n - " + c.getName() + " ("
-					+ format(c.getNumberOfAccounts(), "account") + ")";
+					+ formatPlurality(c.getNumberOfAccounts(), "account") + ")";
 		return summary;
 	}
 
@@ -32,24 +30,25 @@ public class Bank {
 	// in:
 	// If number passed in is 1 just return the word otherwise add an 's' at the
 	// end
-	private String format(int number, String word) {
+	private String formatPlurality(int number, String word) {
 		return number + " " + (number == 1 ? word : word + "s");
 	}
 
-	public double totalInterestPaid() {
+	public double getTotalInterestPaid() {
 		double total = 0;
 		for (Customer c : customers)
-			total += c.totalInterestEarned();
+			total += c.getTotalInterestEarned();
 		return total;
 	}
 
-	public String getFirstCustomer() {
+	public Customer getFirstCustomer() {
 		try {
 			// customers = null; // Why nullify the customers list???
-			return customers.get(0).getName();
+			return customers.get(0);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return "Error";
+			return null;
 		}
 	}
+
 }

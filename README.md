@@ -30,11 +30,25 @@ A dummy application for a bank; should provide various functions of a retail ban
   * **Checking accounts** have a flat rate of 0.1%
   * **Savings accounts** have a rate of 0.1% for the first $1,000 then 0.2%
   * **Maxi-Savings accounts** have a rate of 2% for the first $1,000 then 5% for the next $1,000 then 10%
-* A bank manager can get a report showing the list of customers and how many accounts they have
-* A bank manager can get a report showing the total interest paid by the bank on all accounts
+* A bank manager can get a report showing the list of customers and how many accounts they have DONE
+* A bank manager can get a report showing the total interest paid by the bank on all accounts DONE
 
 ### Additional Features
 
-* A customer can transfer between their accounts
-* Change **Maxi-Savings accounts** to have an interest rate of 5% assuming no withdrawals in the past 10 days otherwise 0.1%
+* A customer can transfer between their accounts DONE
+* Change **Maxi-Savings accounts** to have an interest rate of 5% assuming no withdrawals in the past 10 days otherwise 0.1% DONE
 * Interest rates should accrue daily (incl. weekends), rates above are per-annum
+
+### Notes
+
+I do not know where to apply the accured interest.  This is supposed to happen daily.  The method Account.accrueInterest() will deposit
+the interest accrued on the current balance, however there is no schedule enforcing this daily process.  Does this mean interest will be 
+accrued on the interest from the previous day, as well?
+
+Interest only accrues on positive balances.
+
+Customers have a map of accounts with unique account names.  Customer objects are now responsible for deposit, withdrawal, and transfer calls.
+
+Account creation now happens inside the Customer object since Accounts need a parent Customer.  Free-floating Account objects should not be created.
+Account objects should not be responsible for deposit and withdrawal calls.
+AccountType enum is used to ensure only valid account types are used to create Accounts.

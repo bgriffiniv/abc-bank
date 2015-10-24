@@ -2,7 +2,7 @@ package com.abc;
 
 import java.util.Date;
 
-public class Transaction {
+public class Transaction implements Comparable<Transaction> {
 	private final double amount;
 	private final Date transactionDate;
 
